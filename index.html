@@ -1,87 +1,436 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StampDealsUSA - 美国邮票商店</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>US Stamp Deals – Discount Forever Stamps</title>
+  <meta name="description" content="Buy discount US Forever Stamps at up to 73% off. Wide selection of collectible and usable postage stamps for all occasions — patriotic, holiday, wedding, nature, commemorative and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="app">
-        <!-- 导航栏 -->
-        <header class="header">
-            <div class="container">
-                <h1 class="logo">🎟️ StampDealsUSA</h1>
-                <nav class="nav">
-                    <a href="#products" class="nav-link">产品列表</a>
-                    <a href="#shipping" class="nav-link">发货说明</a>
-                </nav>
-            </div>
-        </header>
 
-        <!-- 主内容 -->
-        <main class="main">
-            <div class="container">
-                <!-- 加载中提示 -->
-                <div id="loading" class="loading">
-                    <div class="loading-spinner"></div>
-                    <p>正在加载产品...</p>
-                </div>
+<!-- TOP BAR -->
+<div class="topbar">
+  🎉 <strong>Save up to 73% OFF</strong> on US Forever Stamps — Free Shipping on Orders Over $50
+</div>
 
-                <!-- 产品列表 -->
-                <div id="products" class="products-grid"></div>
-            </div>
-        </main>
+<!-- HEADER -->
+<header>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">✉</div>
+      US Stamp Deals
+    </a>
 
-        <!-- 页脚 -->
-        <footer class="footer">
-            <div class="container">
-                <p>&copy; 2026 StampDealsUSA. All rights reserved.</p>
-            </div>
-        </footer>
+    <nav class="nav-links">
+      <a href="#" class="active">Home</a>
 
-        <!-- 产品详情弹窗 -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="modal-close">&times;</span>
-                <div class="modal-body">
-                    <div class="modal-image">
-                        <img id="modal-img" src="" alt="">
-                    </div>
-                    <div class="modal-details">
-                        <h2 id="modal-title"></h2>
-                        <div class="modal-rating">
-                            <span id="modal-stars"></span>
-                            <span id="modal-reviews"></span>
-                        </div>
-                        <p id="modal-desc"></p>
-                        
-                        <!-- 价格说明 -->
-                        <div class="pricing-info-box">
-                            <strong>💰 Price说明:</strong>
-                            <p>显示价格为1套的价格</p>
-                            <p>Set = 5 sheets (一套 = 5张)</p>
-                            <p>Roll = 100 sheets (一卷 = 100张)</p>
-                            <p>Coil = 10000 sheets (一盒 = 10000张)</p>
-                        </div>
-
-                        <!-- 中国发货规则 -->
-                        <div class="shipping-info-box">
-                            <strong>📦 中国发货规则:</strong>
-                            <p>✅ 支持从中国发货 (CN) - 经济实惠，2-3周到达</p>
-                            <p>✅ 支持美国本地发货 (US) - 快速送达，3-5天到达</p>
-                            <p>⚠️ 中国发货订单最低$20起，低于$20请选择美国发货</p>
-                        </div>
-
-                        <!-- 变体选择 -->
-                        <div id="modal-variants" class="modal-variants"></div>
-                    </div>
-                </div>
-            </div>
+      <!-- Shop By Theme dropdown -->
+      <div class="nav-dropdown">
+        <a href="#shop">
+          Shop By Theme
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown-menu">
+          <a onclick="setTheme('animals');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🐾 Animals &amp; Nature</a>
+          <a onclick="setTheme('celebrations');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🎉 Celebrations &amp; Thank You</a>
+          <a onclick="setTheme('commemorative');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🏅 Commemorative</a>
+          <a onclick="setTheme('fruits-flowers');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🌸 Fruits &amp; Flowers</a>
+          <a onclick="setTheme('fundraising');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">💜 Fundraising</a>
+          <a onclick="setTheme('history');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🏛️ History &amp; Heritage</a>
+          <a onclick="setTheme('holiday');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🎄 Holiday</a>
+          <a onclick="setTheme('kids');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🧒 Kids</a>
+          <a onclick="setTheme('love');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">❤️ Love</a>
+          <a onclick="setTheme('patriotic');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🇺🇸 Patriotic</a>
+          <a onclick="setTheme('people');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">👤 People</a>
+          <a onclick="setTheme('science');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🔭 Science &amp; Space</a>
+          <a onclick="setTheme('sports');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">⚽ Sports</a>
+          <a onclick="setTheme('wedding');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">💍 Wedding</a>
         </div>
+      </div>
+
+      <!-- Shop By Denomination dropdown -->
+      <div class="nav-dropdown">
+        <a href="#shop">
+          By Postage Value
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown-menu">
+          <a onclick="setDenom('forever');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">⭐ Forever Stamps ($0.73)</a>
+          <a onclick="setDenom('priority');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">📦 Priority Mail</a>
+          <a onclick="setDenom('two-oz');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">✉️ Two-Ounce ($0.92)</a>
+          <a onclick="setDenom('postcard');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">📬 Postcard ($0.53)</a>
+          <a onclick="setDenom('semipostal');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">💜 Semi-Postal ($0.85)</a>
+          <a onclick="setDenom('international');document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🌍 International ($1.55)</a>
+        </div>
+      </div>
+
+      <a href="#how-it-works">How It Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Search stamps…" oninput="doSearch()" />
+      </div>
+      <button class="btn btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+      <button class="hamburger" onclick="openMobileNav()" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav" onclick="closeMobileNav(event)">
+  <div class="mobile-nav-panel">
+    <div class="mobile-nav-header">
+      <span class="logo" style="font-size:16px">✉ US Stamp Deals</span>
+      <button class="mobile-nav-close" onclick="closeMobileNavDirect()">✕</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="#" class="active" onclick="closeMobileNavDirect()">Home</a>
+      <div class="mobile-section-label">Shop By Theme</div>
+      <a onclick="setTheme('all');closeMobileNavDirect();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">All Stamps</a>
+      <a onclick="setTheme('patriotic');closeMobileNavDirect();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🇺🇸 Patriotic</a>
+      <a onclick="setTheme('holiday');closeMobileNavDirect();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🎄 Holiday</a>
+      <a onclick="setTheme('wedding');closeMobileNavDirect();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">💍 Wedding</a>
+      <a onclick="setTheme('animals');closeMobileNavDirect();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🐾 Animals &amp; Nature</a>
+      <a onclick="setTheme('commemorative');closeMobileNavDirect();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🏅 Commemorative</a>
+      <a onclick="setTheme('history');closeMobileNavDirect();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🏛️ History &amp; Heritage</a>
+      <a onclick="setTheme('science');closeMobileNavDirect();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🔭 Science &amp; Space</a>
+      <a onclick="setTheme('kids');closeMobileNavDirect();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">🧒 Kids</a>
+      <div class="mobile-section-label">Other</div>
+      <a href="#how-it-works" onclick="closeMobileNavDirect()">How It Works</a>
+      <a href="#contact" onclick="closeMobileNavDirect()">Contact Us</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">✦ Trusted by 800+ Collectors Nationwide</div>
+    <h1>Discount <span>US Forever Stamps</span><br/>Save Up to 73% Off</h1>
+    <p>Authentic USPS Forever Stamps at unbeatable prices. Patriotic, holiday, wedding, nature, commemorative — all themes available. Bulk orders welcome.</p>
+    <div class="hero-btns">
+      <button class="btn-hero-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Browse All Stamps</button>
+      <button class="btn-hero-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">800+</div><div class="hero-stat-label">Happy Customers</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">25+</div><div class="hero-stat-label">Stamp Designs</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">73%</div><div class="hero-stat-label">Max Savings</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Authentic USPS</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      100% Authentic USPS Stamps
+    </div>
+    <div class="trust-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Fast &amp; Safe Delivery
+    </div>
+    <div class="trust-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+      Free Shipping Over $50
+    </div>
+    <div class="trust-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Bulk Discounts Available
+    </div>
+    <div class="trust-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      30-Day Return Policy
+    </div>
+  </div>
+</div>
+
+<!-- ===== SHOP SECTION ===== -->
+<section class="shop-section" id="shop">
+  <div class="shop-inner">
+    <div class="shop-header">
+      <span class="section-tag">Our Collection</span>
+      <h2>Browse Our Stamp Collection</h2>
+      <p>All stamps are genuine USPS Forever Stamps — valid for First-Class postage at any time, regardless of future rate increases.</p>
     </div>
 
-    <!-- JavaScript -->
-    <script src="app.js"></script>
+    <!-- THEME TABS -->
+    <div class="cat-tabs-wrap">
+      <div class="cat-tabs-label">Shop By Theme</div>
+      <div class="cat-tabs" id="themeTabs"></div>
+    </div>
+
+    <!-- SHOP BODY -->
+    <div class="shop-body">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <!-- By Denomination -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">By Postage Value</div>
+          <div class="sidebar-links" id="sidebarDenom"></div>
+        </div>
+
+        <!-- Price Filter -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">Price Range</div>
+          <div class="price-filter">
+            <div class="price-row">
+              <input class="price-input" type="number" id="priceMin" placeholder="Min $" min="0" />
+              <input class="price-input" type="number" id="priceMax" placeholder="Max $" min="0" />
+            </div>
+            <button class="price-apply" onclick="applyPriceFilter()">Apply Filter</button>
+          </div>
+        </div>
+
+        <!-- By Theme (sidebar) -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">By Theme</div>
+          <div class="sidebar-links" id="sidebarTheme"></div>
+        </div>
+
+        <!-- Top Rated -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">Top Rated</div>
+          <div id="sidebarTopRated"></div>
+        </div>
+
+      </aside>
+
+      <!-- MAIN -->
+      <div class="shop-main">
+        <div class="shop-toolbar">
+          <div class="shop-count" id="shopCount"></div>
+          <select class="sort-select" onchange="setSort(this.value)">
+            <option value="default">Sort: Default</option>
+            <option value="rating">Sort: Top Rated</option>
+            <option value="newest">Sort: Newest First</option>
+            <option value="price-asc">Sort: Price Low → High</option>
+            <option value="price-desc">Sort: Price High → Low</option>
+          </select>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+
+    </div><!-- /shop-body -->
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how-it-works">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Simple Process</span>
+      <h2>How It Works</h2>
+      <p>Getting your discount stamps is quick and easy. We ship directly to your door.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon">🔍</div>
+        <div class="step-num">Step 01</div>
+        <div class="step-title">Browse &amp; Select</div>
+        <div class="step-desc">Browse our collection by theme, denomination, or price. Click any stamp to see full details and available quantities.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">📩</div>
+        <div class="step-num">Step 02</div>
+        <div class="step-title">Contact Us</div>
+        <div class="step-desc">Send your order via email or WhatsApp. We confirm availability and provide a final price within 24 hours.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">💳</div>
+        <div class="step-num">Step 03</div>
+        <div class="step-title">Secure Payment</div>
+        <div class="step-desc">Pay securely via PayPal, Zelle, or bank transfer. All major payment methods supported.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">📦</div>
+        <div class="step-num">Step 04</div>
+        <div class="step-title">Fast Delivery</div>
+        <div class="step-desc">Your stamps are carefully packaged and shipped. Order tracking provided for every shipment.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Customer Reviews</span>
+      <h2>What Our Customers Say</h2>
+      <p>Hundreds of satisfied customers across the United States trust us for their stamp needs.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Amazing prices! I've been collecting Forever Stamps for years and this is by far the best deal I've found. The Betty White stamps arrived quickly and were exactly as described."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">LM</div>
+          <div><div class="author-name">Linda M.</div><div class="author-location">Brooklyn, NY</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Ordered 500 Wedding Blooms stamps for our invitations. Great bulk pricing and they arrived in perfect condition. Our guests loved the stamps — several asked where we got them!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JS</div>
+          <div><div class="author-name">Jack &amp; Sarah T.</div><div class="author-location">Yukon, OK</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I run a small business and order stamps regularly. This shop saves me a ton every month. The D&amp;D stamps were a huge hit with my gaming clients — everyone commented on them!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MW</div>
+          <div><div class="author-name">Michelle W.</div><div class="author-location">Beloit, KS</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-strip" id="contact">
+  <h2>Ready to Order? Let's Talk!</h2>
+  <p>Contact us for custom quotes, bulk orders, or any questions. We respond within 24 hours.</p>
+  <div class="contact-btns">
+    <a href="https://wa.me/1XXXXXXXXXX?text=Hi%2C%20I%27m%20interested%20in%20your%20stamps" target="_blank">
+      <button class="btn-contact-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </button>
+    </a>
+    <a href="mailto:support@stampdealsusa.com">
+      <button class="btn-contact-email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send Email
+      </button>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo"><div class="footer-logo-icon">✉</div> US Stamp Deals</div>
+      <p>Your trusted source for discount US Forever Stamps. Authentic, affordable, and delivered to your door. All themes and denominations available.</p>
+      <div style="display:flex;gap:10px;margin-top:4px">
+        <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);font-size:14px;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">f</a>
+        <a href="#" style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);font-size:14px;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.1)'">in</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop By Theme</h4>
+      <ul>
+        <li><a href="#shop" onclick="setTheme('patriotic')">🇺🇸 Patriotic</a></li>
+        <li><a href="#shop" onclick="setTheme('holiday')">🎄 Holiday</a></li>
+        <li><a href="#shop" onclick="setTheme('wedding')">💍 Wedding</a></li>
+        <li><a href="#shop" onclick="setTheme('animals')">🐾 Animals &amp; Nature</a></li>
+        <li><a href="#shop" onclick="setTheme('commemorative')">🏅 Commemorative</a></li>
+        <li><a href="#shop" onclick="setTheme('science')">🔭 Science &amp; Space</a></li>
+        <li><a href="#shop" onclick="setTheme('kids')">🧒 Kids</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>By Postage Value</h4>
+      <ul>
+        <li><a href="#shop" onclick="setDenom('forever')">Forever ($0.73)</a></li>
+        <li><a href="#shop" onclick="setDenom('two-oz')">Two-Ounce ($0.92)</a></li>
+        <li><a href="#shop" onclick="setDenom('priority')">Priority Mail</a></li>
+        <li><a href="#shop" onclick="setDenom('semipostal')">Semi-Postal</a></li>
+        <li><a href="#shop" onclick="setDenom('international')">International</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        support@stampdealsusa.com
+      </div>
+      <div class="footer-contact-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +1 (800) XXX-XXXX
+      </div>
+      <div class="footer-contact-item" style="margin-top:4px;font-size:12px;color:rgba(255,255,255,.4)">Mon–Fri, 9am–6pm EST</div>
+      <div class="footer-col" style="margin-top:14px">
+        <h4 style="margin-bottom:8px">Info</h4>
+        <ul>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 US Stamp Deals. All rights reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <h3 id="modalCat">Stamp Detail</h3>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-img" id="modalImg"></div>
+      <div class="modal-info">
+        <h2 id="modalName"></h2>
+        <div class="modal-rating" id="modalRating"></div>
+        <div class="modal-price" id="modalPrice"></div>
+        <div class="modal-price-note" id="modalOriginal"></div>
+        <div class="modal-savings" id="modalSavings"></div>
+        <p class="modal-desc" id="modalDesc"></p>
+
+        <div class="modal-specs">
+          <div class="modal-specs-title">Product Details</div>
+          <table class="specs-table" id="modalSpecs"></table>
+        </div>
+
+        <div class="qty-row">
+          <span class="qty-label">Option:</span>
+          <select class="qty-select" id="modalQty"></select>
+        </div>
+        <div class="modal-btn-group">
+          <button class="modal-btn-primary" id="modalEmailBtn">📧 Inquire via Email</button>
+          <button class="modal-btn-wa" id="modalWaBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            Order via WhatsApp
+          </button>
+          <button class="modal-btn-outline" onclick="closeModalDirect()">Continue Browsing</button>
+        </div>
+        <div class="modal-tags" id="modalTags"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
 </body>
 </html>

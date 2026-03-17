@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StampDealsUSA - 美国邮票商店</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 导航栏 -->
+        <header class="header">
+            <div class="container">
+                <h1 class="logo">🎟️ StampDealsUSA</h1>
+                <nav class="nav">
+                    <a href="#products" class="nav-link">产品列表</a>
+                    <a href="#shipping" class="nav-link">发货说明</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- 主内容 -->
+        <main class="main">
+            <div class="container">
+                <!-- 加载中提示 -->
+                <div id="loading" class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>正在加载产品...</p>
+                </div>
+
+                <!-- 产品列表 -->
+                <div id="products" class="products-grid"></div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2026 StampDealsUSA. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- 产品详情弹窗 -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div class="modal-body">
+                    <div class="modal-image">
+                        <img id="modal-img" src="" alt="">
+                    </div>
+                    <div class="modal-details">
+                        <h2 id="modal-title"></h2>
+                        <div class="modal-rating">
+                            <span id="modal-stars"></span>
+                            <span id="modal-reviews"></span>
+                        </div>
+                        <p id="modal-desc"></p>
+                        
+                        <!-- 价格说明 -->
+                        <div class="pricing-info-box">
+                            <strong>💰 Price说明:</strong>
+                            <p>显示价格为1套的价格</p>
+                            <p>Set = 5 sheets (一套 = 5张)</p>
+                            <p>Roll = 100 sheets (一卷 = 100张)</p>
+                            <p>Coil = 10000 sheets (一盒 = 10000张)</p>
+                        </div>
+
+                        <!-- 中国发货规则 -->
+                        <div class="shipping-info-box">
+                            <strong>📦 中国发货规则:</strong>
+                            <p>✅ 支持从中国发货 (CN) - 经济实惠，2-3周到达</p>
+                            <p>✅ 支持美国本地发货 (US) - 快速送达，3-5天到达</p>
+                            <p>⚠️ 中国发货订单最低$20起，低于$20请选择美国发货</p>
+                        </div>
+
+                        <!-- 变体选择 -->
+                        <div id="modal-variants" class="modal-variants"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>

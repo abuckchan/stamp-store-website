@@ -11127,15 +11127,15 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="modal-price">Starting at ${defaultPrice.toFixed(2)} / Set</div>
 
             <div class="price-notice">
-              <p><strong>💰 Price说明：</strong>显示价格为<strong>1套</strong>的价格</p>
-              <p>• 1套 = 5版（Sheets）</p>
-              <p>• 1版 = 20张邮票</p>
+              <p><strong>💰 Price Note:</strong> The price shown is the unit price per <strong>Set</strong></p>
+              <p>• 1 Set = 5 Sheets</p>
+              <p>• 1 Set = 1 Roll</p>
             </div>
 
             <p class="modal-description">${product.description || 'Official USPS Forever stamps. Valid for First-Class Mail forever.'}</p>
 
             <div class="shipping-options">
-              <h4>选择发货地：</h4>
+              <h4>Select Shipping Origin:</h4>
               ${product.variants.map((v, i) => {
                 const isActive = i === 0 ? 'active' : '';
                 const isChecked = i === 0 ? 'checked' : '';
@@ -11143,18 +11143,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (v.shippingFrom === 'CN') {
                   shippingInfo = `
                     <div class="shipping-info">
-                      <p>• <strong>最低采购量：</strong>10套</p>
-                      <p>• <strong>运输方式：</strong>普通快递 / 联邦快递</p>
-                      <p>• <strong>时效：</strong>10套-59套（30天内）| 60套以上（10天内）</p>
-                      <p>• <strong>费用：</strong>包邮 📦</p>
+                      <p>• <strong>Minimum order:</strong> 10 sets</p>
+                      <p>• <strong>Shipping Method:</strong> Standard Shipping (10-59 sets) / FedEx (60+ sets)</p>
+                      <p>• <strong>Delivery Time:</strong> Within 30 days (10-59 sets) / Within 10 days (60+ sets)</p>
                     </div>
                   `;
                 } else {
                   shippingInfo = `
                     <div class="shipping-info">
-                      <p>• <strong>运输方式：</strong>本地配送</p>
-                      <p>• <strong>时效：</strong>3-5天</p>
-                      <p>• <strong>费用：</strong>包邮 📦</p>
+                      <p>• <strong>Minimum order:</strong> No minimum order</p>
+                      <p>• <strong>Shipping Method:</strong> Standard Shipping</p>
+                      <p>• <strong>Delivery Time:</strong> 3–5 business days</p>
                     </div>
                   `;
                 }
@@ -11176,12 +11175,16 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div class="quantity-selector">
-              <label>采购数量（套）：</label>
+              <label>Quantity (Sets):</label>
               <input type="number" id="product-quantity" value="10" min="10" max="1000" onchange="updateShippingInfo()">
-              <span class="quantity-unit">套（1套=5版）</span>
+              <span class="quantity-unit">sets (1 set = 5 sheets)</span>
             </div>
 
             <div class="total-notice" id="total-notice"></div>
+
+            <div class="free-shipping-banner">
+              <p><strong>✅ Free shipping on all orders!</strong></p>
+            </div>
 
             <div class="modal-actions">
               <button class="btn-primary" onclick="addToCart()">
@@ -11247,12 +11250,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let shippingInfo = '';
     if (shippingFrom === 'CN') {
-      shippingInfo = quantity >= 60 ? '联邦快递（10天内）' : '标准快递（30天内）';
+      shippingInfo = quantity >= 60 ? 'FedEx (within 10 days)' : 'Standard Shipping (within 30 days)';
     } else {
-      shippingInfo = '本地配送（3-5天）';
+      shippingInfo = 'Local Delivery (3-5 days)';
     }
 
-    alert(`已加入购物车：\\n\\n产品：${product?.name || 'N/A'}\\nSKU：${sku}\\n采购数量：${quantity} 套（${quantity * 5} 版）\\n发货地：${shippingFrom}\\n运输方式：${shippingInfo}\\n\\n总计：${total.toFixed(2)}（已包含运费）`);
+    alert(`Added to Cart:\n\nProduct: ${product?.name || 'N/A'}\nSKU: ${sku}\nQuantity: ${quantity} sets (${quantity * 5} sheets)\nShipping From: ${shippingFrom}\nShipping Method: ${shippingInfo}\n\nTotal: $${total.toFixed(2)} (Shipping included)`);
   };
 
 
